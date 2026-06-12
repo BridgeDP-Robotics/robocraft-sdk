@@ -1,0 +1,20 @@
+name: unitree_g1_rmw
+short_name: unitree-g1-rmw
+so_name: libunitree_g1_rmw_wrapper.so
+package_name: sdk-unitree_g1_rmw
+assets_dir: assets-g1
+needs_docker: false
+architectures: [aarch64]
+tag_prefix: sdk-g1-rmw
+cmake_flag: ROBOCRAFT_BUILD_SDK_WRAPPER_UNITREE_G1_RMW
+sdk_source_dir: sdk/unitree_ros2/cyclonedds_ws
+rpath: "$ORIGIN/lib:/opt/ros/humble/lib"
+bundled_libs:
+  - { src: "sdk/unitree_ros2/cyclonedds_ws/install/unitree_hg/lib/libunitree_hg__rosidl_generator_c.so", dst: "libunitree_hg__rosidl_generator_c.so" }
+  - { src: "sdk/unitree_ros2/cyclonedds_ws/install/unitree_hg/lib/libunitree_hg__rosidl_typesupport_c.so", dst: "libunitree_hg__rosidl_typesupport_c.so" }
+  - { src: "sdk/unitree_ros2/cyclonedds_ws/install/unitree_hg/lib/libunitree_hg__rosidl_typesupport_introspection_c.so", dst: "libunitree_hg__rosidl_typesupport_introspection_c.so" }
+  - { src: "sdk/unitree_ros2/cyclonedds_ws/install/unitree_hg/lib/libunitree_hg__rosidl_typesupport_fastrtps_c.so", dst: "libunitree_hg__rosidl_typesupport_fastrtps_c.so" }
+  - { src: "sdk/unitree_ros2/cyclonedds_ws/install/unitree_api/lib/libunitree_api__rosidl_generator_c.so", dst: "libunitree_api__rosidl_generator_c.so" }
+  - { src: "sdk/unitree_ros2/cyclonedds_ws/install/unitree_api/lib/libunitree_api__rosidl_typesupport_c.so", dst: "libunitree_api__rosidl_typesupport_c.so" }
+  - { src: "sdk/unitree_ros2/cyclonedds_ws/install/unitree_api/lib/libunitree_api__rosidl_typesupport_introspection_c.so", dst: "libunitree_api__rosidl_typesupport_introspection_c.so" }
+  - { src: "sdk/unitree_ros2/cyclonedds_ws/install/unitree_api/lib/libunitree_api__rosidl_typesupport_fastrtps_c.so", dst: "libunitree_api__rosidl_typesupport_fastrtps_c.so" }

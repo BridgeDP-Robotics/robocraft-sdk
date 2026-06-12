@@ -1,0 +1,101 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://robocraft/wrapper-manifest-v1.schema.json",
+  "title": "SDK Wrapper Manifest v1",
+  "description": "Schema for manifest.yaml shipped inside a robot SDK wrapper package. Authoritative field reference for sdk_diag --check.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "sdk", "vendor", "robot", "target", "api", "network", "files"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "sdk": {
+      "type": "object",
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+" },
+        "description": { "type": "string" }
+      }
+    },
+    "vendor": {
+      "type": "object",
+      "required": ["name", "contact", "license"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "contact": { "type": "string", "minLength": 1 },
+        "license": {
+          "type": "string",
+          "description": "SPDX identifier. Examples: Proprietary, Apache-2.0, MIT, BSD-3-Clause, LGPL-2.1, LGPL-3.0. Bundled private libs must not be GPL (non-LGPL)."
+        }
+      }
+    },
+    "robot": {
+      "type": "object",
+      "required": ["model", "firmware_version_min"],
+      "properties": {
+        "model": { "type": "string", "minLength": 1 },
+        "firmware_version_min": { "type": "string", "minLength": 1 }
+      }
+    },
+    "target": {
+      "type": "object",
+      "required": ["arch"],
+      "properties": {
+        "arch": { "type": "string", "enum": ["x86_64", "aarch64"] },
+        "os": { "type": "string" },
+        "glibc_max": { "type": "string" },
+        "libstdcxx_max": { "type": "string" }
+      }
+    },
+    "api": {
+      "type": "object",
+      "required": ["version", "entrypoint", "capabilities"],
+      "properties": {
+        "version": { "type": "string" },
+        "entrypoint": { "type": "string", "minLength": 1 },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "SDK_CAP_LOW_LEVEL", "SDK_CAP_IMU", "SDK_CAP_BATTERY", "SDK_CAP_FOOT_SENSOR",
+              "SDK_CAP_ODOMETRY", "SDK_CAP_HAND_LEFT", "SDK_CAP_HAND_RIGHT", "SDK_CAP_JOYSTICK",
+              "SDK_CAP_FALL_DETECT", "SDK_CAP_MOTOR_TEMP", "SDK_CAP_MOTOR_MODE", "SDK_CAP_NATIVE_QUAT"
+            ]
+          }
+        }
+      }
+    },
+    "network": {
+      "type": "object",
+      "required": ["protocol"],
+      "properties": {
+        "interface": { "type": "string", "minLength": 1 },
+        "protocol": { "type": "string", "minLength": 1 },
+        "ports": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "files": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "sha256", "size"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1 },
+          "sha256": { "type": "string", "pattern": "^[0-9a-fA-F]{64}$" },
+          "size": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "private_libs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "system_libs": {
+      "description": "Host-provided shared libraries (base names) the wrapper may depend on without bundling, beyond the built-in system whitelist. Intended for ROS libraries resolved from /opt/ros/<distro>/lib by RMW wrappers.",
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

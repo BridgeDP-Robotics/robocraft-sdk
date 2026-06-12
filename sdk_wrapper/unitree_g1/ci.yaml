@@ -1,0 +1,15 @@
+# CI config for Unitree G1 SDK wrapper
+name: unitree_g1
+short_name: g1
+so_name: libunitree_g1_wrapper.so
+package_name: sdk-unitree_g1
+assets_dir: assets-g1
+needs_docker: true
+docker_image: ci-unitree-g1-builder
+architectures: [aarch64]
+tag_prefix: sdk-g1
+cmake_flag: ROBOCRAFT_BUILD_SDK_WRAPPER_G1
+sdk_source_dir: sdk/unitree_sdk2
+bundled_libs:
+  - { src: "sdk/unitree_sdk2/thirdparty/lib/{arch}/libddsc.so", dst: "libddsc.so.0" }
+  - { src: "sdk/unitree_sdk2/thirdparty/lib/{arch}/libddscxx.so", dst: "libddscxx.so.0" }

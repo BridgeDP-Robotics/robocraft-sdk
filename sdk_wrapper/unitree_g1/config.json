@@ -1,0 +1,10 @@
+{
+  "domain_id": 0,
+  "network_interface": "",
+  "topic_low_state": "rt/lowstate",
+  "topic_low_cmd": "rt/lowcmd",
+  "max_release_retries": 5,
+  "unready_mode_alias": "normal",
+  "motion_switcher_timeout_s": 5.0,
+  "retry_interval_s": 3
+}

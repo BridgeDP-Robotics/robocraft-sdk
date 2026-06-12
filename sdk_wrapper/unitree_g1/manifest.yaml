@@ -1,0 +1,28 @@
+# Static metadata for the Unitree G1 SDK wrapper package.
+# ci/gen_wrapper_manifest.sh appends target.arch + files[] and emits the final
+# manifest.yaml + checksums.sha256 into the package dir.
+# Values below are best-effort; confirm vendor/firmware fields before release.
+schema_version: 1
+sdk:
+  name: unitree_g1
+  version: 1.0.0
+vendor:
+  name: Unitree Robotics
+  contact: sdk@robocraft.example
+  license: Proprietary
+robot:
+  model: G1
+  firmware_version_min: 0.0.0
+api:
+  version: "1.0"
+  entrypoint: libunitree_g1_wrapper.so
+  capabilities:
+    - SDK_CAP_LOW_LEVEL
+    - SDK_CAP_IMU
+    - SDK_CAP_JOYSTICK
+    - SDK_CAP_NATIVE_QUAT
+network:
+  protocol: dds
+private_libs:
+  - lib/libddsc.so.0
+  - lib/libddscxx.so.0

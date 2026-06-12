@@ -1,0 +1,39 @@
+schema_version: 1
+sdk:
+  name: unitree_g1_rmw
+  version: 1.0.0
+vendor:
+  name: Unitree Robotics
+  contact: sdk@robocraft.example
+  license: Proprietary
+robot:
+  model: G1
+  firmware_version_min: 0.0.0
+api:
+  version: "1.0"
+  entrypoint: libunitree_g1_rmw_wrapper.so
+  capabilities:
+    - SDK_CAP_LOW_LEVEL
+    - SDK_CAP_IMU
+    - SDK_CAP_JOYSTICK
+    - SDK_CAP_NATIVE_QUAT
+network:
+  protocol: dds
+private_libs:
+  - lib/libunitree_hg__rosidl_generator_c.so
+  - lib/libunitree_hg__rosidl_typesupport_c.so
+  - lib/libunitree_hg__rosidl_typesupport_introspection_c.so
+  - lib/libunitree_hg__rosidl_typesupport_fastrtps_c.so
+  - lib/libunitree_api__rosidl_generator_c.so
+  - lib/libunitree_api__rosidl_typesupport_c.so
+  - lib/libunitree_api__rosidl_typesupport_introspection_c.so
+  - lib/libunitree_api__rosidl_typesupport_fastrtps_c.so
+# ROS core libraries provided by the robot's host ROS install
+# (/opt/ros/<distro>/lib, on the wrapper RUNPATH); not bundled.
+system_libs:
+  - librcl.so
+  - librcutils.so
+  - librosidl_runtime_c.so
+  - librmw.so
+  - librmw_implementation.so
+  - librosidl_typesupport_c.so

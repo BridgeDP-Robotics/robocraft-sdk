@@ -1,0 +1,13 @@
+# Linker version script shared by every SDK wrapper.
+#
+# A wrapper must expose ONLY the single C ABI entry point `sdk_vtable`.
+# CXX_VISIBILITY_PRESET=hidden alone is not enough: global symbols pulled in
+# from statically linked vendor SDKs (.a archives) are still re-exported from
+# the shared object. This anonymous version node forces everything except
+# sdk_vtable to local linkage.
+{
+  global:
+    sdk_vtable;
+  local:
+    *;
+};

@@ -1,0 +1,21 @@
+{
+  "domain_id": 0,
+  "network_interface": "",
+  "default_rmw_implementation": "rmw_cyclonedds_cpp",
+  "node_name": "robocraft_unitree_g1_rmw_wrapper",
+  "topic_low_state": "/lowstate",
+  "topic_low_cmd": "/lowcmd",
+  "topic_motion_switcher_request": "/api/motion_switcher/request",
+  "topic_motion_switcher_response": "/api/motion_switcher/response",
+  "topic_sport_request": "/api/sport/request",
+  "topic_sport_response": "/api/sport/response",
+  "api_check_mode": 1001,
+  "api_select_mode": 1002,
+  "api_release_mode": 1003,
+  "api_timeout_s": 5,
+  "max_release_retries": 5,
+  "retry_interval_s": 3,
+  "loco_set_fsm_id": 7101,
+  "loco_damp_fsm_id": 1,
+  "unready_mode_alias": "ai"
+}
