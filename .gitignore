@@ -1,0 +1,10 @@
+# GitHub Pages / Jekyll 本地构建产物
+_site/
+docs/_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
+# bundle install 本地依赖（仅用于 jekyll serve 预览）
+/vendor/
+.bundle/

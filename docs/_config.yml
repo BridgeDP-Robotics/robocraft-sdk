@@ -1,0 +1,19 @@
+title: robocraft SDK Wrapper 文档
+description: 面向机器人底软工程师的 SDK Wrapper 分步接入指南
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+
+# GitHub Pages 从 /docs 目录发布时，站点根路径为 /<repo>/
+baseurl: "/robocraft-sdk"
+url: "https://bridgedp-robotics.github.io"
+repository: BridgeDP-Robotics/robocraft-sdk
+
+plugins:
+  - jekyll-relative-links
+
+relative_links:
+  enabled: true
+  collections: true

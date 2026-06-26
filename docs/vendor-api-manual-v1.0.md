@@ -1,3 +1,8 @@
+---
+layout: default
+title: 适配手册 v1.0
+---
+
 # 机器人厂商 SDK Wrapper 适配手册 v1.0
 
 robocraft-runtime 部署在机器人本体上，通过加载**厂商提供的一份 SDK Wrapper（`.so`）**与硬件通信。厂商只需交付这一份 wrapper——把自家机器人 SDK 适配到 robocraft 的 `sdk_vtable` C ABI。

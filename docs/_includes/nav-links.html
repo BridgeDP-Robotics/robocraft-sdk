@@ -1,0 +1,21 @@
+<nav class="sidebar-nav" aria-label="文档导航">
+  <p class="sidebar-nav__title">导航</p>
+  <ul>
+    <li>
+      <a href="{{ site.baseurl }}/"{% if page.url == '/' or page.url == '/index.html' %} class="active"{% endif %}>文档首页</a>
+    </li>
+    <li>
+      <a href="{{ site.baseurl }}/guides/unitree-g1.html"{% if page.url contains 'unitree-g1' %}{% unless page.url contains 'rmw' %} class="active"{% endunless %}{% endif %}>G1 SDK2 指南</a>
+    </li>
+    <li>
+      <a href="{{ site.baseurl }}/guides/unitree-g1-rmw.html"{% if page.url contains 'unitree-g1-rmw' %} class="active"{% endif %}>G1 RMW 指南</a>
+    </li>
+    <li>
+      <a href="{{ site.baseurl }}/vendor-api-manual-v1.0.html"{% if page.url contains 'vendor-api-manual' %} class="active"{% endif %}>适配手册 v1.0</a>
+    </li>
+    <li class="sidebar-nav__divider"></li>
+    <li>
+      <a href="https://github.com/BridgeDP-Robotics/robocraft-sdk" target="_blank" rel="noopener">GitHub 仓库</a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.description | default: page.title }}">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/site.css">
+  <script>
+    (function () {
+      var t = localStorage.getItem('robocraft-docs-theme');
+      if (t === 'dark' || t === 'light') {
+        document.documentElement.setAttribute('data-theme', t);
+      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-hero">
+    <div class="site-hero__inner">
+      <p class="site-hero__eyebrow">{{ site.title }}</p>
+      <h1 class="site-hero__title">{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
+      {% if site.description %}
+      <p class="site-hero__desc">{{ site.description }}</p>
+      {% endif %}
+      <div class="site-hero__actions">
+        <a class="btn btn--ghost" href="https://github.com/{{ site.repository }}" target="_blank" rel="noopener">View on GitHub</a>
+        <button type="button" class="btn btn--theme" id="theme-toggle" aria-label="切换白天/黑夜模式">
+          <span class="theme-icon theme-icon--sun" aria-hidden="true">☀</span>
+          <span class="theme-icon theme-icon--moon" aria-hidden="true">☽</span>
+          <span class="theme-toggle__label">主题</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="page-shell">
+    <aside class="sidebar sidebar--left" id="sidebar-toc" aria-label="本页目录">
+      <div class="sidebar__panel">
+        <p class="sidebar__title">TOC</p>
+        <nav id="toc-nav">
+          <p class="sidebar__empty">加载目录…</p>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="content" id="main-content">
+      {{ content }}
+    </main>
+
+    <aside class="sidebar sidebar--right" aria-label="站点导航">
+      <div class="sidebar__panel">
+        {% include nav-links.html %}
+      </div>
+    </aside>
+  </div>
+
+  <button type="button" class="fab fab--toc" id="fab-toc" aria-label="打开目录">☰</button>
+  <button type="button" class="fab fab--nav" id="fab-nav" aria-label="打开导航">≡</button>
+
+  <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
+
+  <script src="{{ site.baseurl }}/assets/js/site.js"></script>
+</body>
+</html>
