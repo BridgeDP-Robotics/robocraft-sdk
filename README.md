@@ -328,7 +328,7 @@ A：[`docs/vendor-api-manual-v1.0.md`](docs/vendor-api-manual-v1.0.md) — 涉�
 
 ## 1.11. 进一步阅读
 
-1. [GitHub Pages 文档站](https://bridgedp-robotics.github.io/robocraft-sdk/) — 面向底软的分步指南（G1 / G1-RMW）
+1. [GitHub Pages 文档站](https://bridgedp-robotics.github.io/robocraft-sdk/) — 面向底软的分步指南（G1 / G1-RMW）；由 [`.github/workflows/pages.yml`](.github/workflows/pages.yml) 自动构建发布
 2. [适配手册 v1.0](docs/vendor-api-manual-v1.0.md) — 规范与审核细节
 3. [接口头文件](sdk_wrapper/interface/sdk_wrapper_interface.h) — 函数签名与调用约定
 4. [sdk_diag 用法](tools/sdk_diag/README.md) — 自检与上机联调
